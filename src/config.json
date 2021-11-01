@@ -1,0 +1,18 @@
+
+{
+    "auth0": { 
+        "domain": "YOUR DOMAIN NAME",
+        "clientID": "YOUR clientID"
+    },
+    "firebase" : {
+        "apiKey": "AIzaSyAWisxQSS7Urgdxz9i4OyNfKX0ne_HArUo",
+        "authDomain": "mydb-b5059.firebaseapp.com",
+        "databaseURL": "https://mydb-b5059.firebaseio.com",
+        "projectId": "mydb-b5059",
+        "storageBucket": "mydb-b5059.appspot.com",
+        "messagingSenderId": "662577496829",
+        "appId": "1:662577496829:web:0e488342a2fe90428f7494",
+        "measurementId": "G-G6Q2V8J5LY"
+    }
+}
+    

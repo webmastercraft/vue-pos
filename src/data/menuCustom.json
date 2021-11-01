@@ -1,0 +1,97 @@
+{
+  "data": [
+    {
+      "headTitle1": "General",
+      "headTitle2": "Dashboards,Widgets & Layout.",
+      "type": "headtitle"
+    },
+    {
+      "title": "commercial",
+      "icon": "shopping-bag",
+      "type": "sub",
+      "badgeType": "light-primary",
+      "badgeValue": "2",
+      "active": false,
+      "children": [
+        {
+          "path": "software",
+          "title": "software",
+          "type": "link"
+        },
+        {
+          "path": "business",
+          "title": "business",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "title": "professional",
+      "icon": "scissors",
+      "type": "sub",
+      "badgeType": "light-primary",
+      "badgeValue": "2",
+      "active": false,
+      "children": [
+        {
+          "path": "auto_electrician",
+          "title": "auto electricican",
+          "type": "link",
+          "badgeType": "light-primary",
+          "badgeValue": "5"
+        },
+        {
+          "path": "mechanical",
+          "title": "mechanical",
+          "type": "link",
+          "badgeType": "light-primary",
+          "badgeValue": "5"
+        }
+      ]
+    },
+    {
+      "path": "/app/medical",
+      "title": "medical",
+      "icon": "heart",
+      "type": "link",
+      "active": false
+    },
+    {
+      "path": "/app/industrial",
+      "title": "industrial",
+      "icon": "truck",
+      "type": "link",
+      "active": false
+    },
+    {
+      "path": "/app/services",
+      "title": "services",
+      "icon": "briefcase",
+      "type": "link",
+      "badgeType": "light-danger",
+      "badgeValue": "latest",
+      "active": false
+    },
+    {
+      "path": "/app/educational",
+      "title": "educational",
+      "icon": "book-open",
+      "type": "link",
+      "bookmark": true
+    },
+    {
+      "path": "/app/tourism",
+      "title": "tourism",
+      "icon": "coffee",
+      "type": "link",
+      "bookmark": true
+    },
+    {
+      "path": "/app/estate",
+      "title": "real estate",
+      "icon": "home",
+      "type": "link",
+      "bookmark": true
+    }
+  ]
+}
