@@ -225,10 +225,53 @@ import HoverEffect from '../pages/gallery/hover-effect';
 import Landing from '../pages/landing/landing';
 import Category from '../pages/category/category';
 
+// pos app
+
+
 
 Vue.use(Router);
 
 const routes = [
+  {
+    path: '/',
+    component: Body,
+    children: [
+    {
+      path: '',
+      name: 'Chart Js',
+      component: Chartjs,
+      meta: {
+        title: 'Home Page - Example App',
+        metaTags: [
+        {
+          name: 'description',
+          content: 'The home page of our example app.'
+        },
+        {
+          property: 'og:description',
+          content: 'The home page of our example app.'
+        }
+        ]
+      }
+    },
+    {
+      path: 'chartist',
+      name: 'Chartist',
+      component: Chartist,
+      meta: {
+        title: 'Chartist | Cuba - Premium Admin Template',
+      }
+    },
+    {
+      path: 'apexchart',
+      name: 'ApexChart',
+      component: ApexChart,
+      meta: {
+        title: 'ApexChart | Cuba - Premium Admin Template',
+      }
+    },
+    ]
+  },
   {
     path: '',
     component: Body,
