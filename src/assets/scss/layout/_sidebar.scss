@@ -2022,7 +2022,7 @@
 
       .page-body {
         min-height: calc(100vh - 80px);
-        margin-top: 80px;
+        margin-top: 70px;
         margin-left: 200px;
         // animation: pagebody 1000ms ease-in-out;
       }
@@ -2828,7 +2828,7 @@
       }
       div.sidebar-wrapper {
         margin: 30px !important;
-        top: 80px;
+        top: 50px;
         bottom: 0;
         border-radius: 15px;
          height: calc(100vh - 110px);
@@ -2867,16 +2867,16 @@
       }
 
       .page-body {
-        margin-left: 310px;
+        margin-left: 225px;
 
         .container-fluid {
           max-width: 1450px;
         }
       }
       .footer {
-        margin-left: 390px;
-    margin-right: 70px;
-    border-radius: 10px;
+        // margin-left: 390px;
+        // margin-right: 70px;
+        border-radius: 10px;
       }
     }
   }
