@@ -6,7 +6,7 @@
       "type": "headtitle"
     },
     {
-      "title": "commercial",
+      "title": "Cashier",
       "icon": "shopping-bag",
       "type": "sub",
       "badgeType": "light-primary",
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "title": "professional",
+      "title": "inventory",
       "icon": "scissors",
       "type": "sub",
       "badgeType": "light-primary",
@@ -51,21 +51,21 @@
     },
     {
       "path": "/app/medical",
-      "title": "medical",
+      "title": "Orders",
       "icon": "heart",
       "type": "link",
       "active": false
     },
     {
       "path": "/app/industrial",
-      "title": "industrial",
+      "title": "installments",
       "icon": "truck",
       "type": "link",
       "active": false
     },
     {
       "path": "/app/services",
-      "title": "services",
+      "title": "expenses",
       "icon": "briefcase",
       "type": "link",
       "badgeType": "light-danger",
@@ -74,21 +74,28 @@
     },
     {
       "path": "/app/educational",
-      "title": "educational",
+      "title": "accountant",
       "icon": "book-open",
       "type": "link",
       "bookmark": true
     },
     {
       "path": "/app/tourism",
-      "title": "tourism",
+      "title": "reports",
       "icon": "coffee",
       "type": "link",
       "bookmark": true
     },
     {
       "path": "/app/estate",
-      "title": "real estate",
+      "title": "employees",
+      "icon": "home",
+      "type": "link",
+      "bookmark": true
+    },
+    {
+      "path": "/app/estate",
+      "title": "sync",
       "icon": "home",
       "type": "link",
       "bookmark": true

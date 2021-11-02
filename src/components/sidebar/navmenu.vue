@@ -257,7 +257,7 @@
       window.addEventListener('resize', this.handleResize);
       this.handleResize();
       if (this.$store.state.menu.width < 991) {
-        this.layout.settings.layout = 'Tokyo';	
+        this.layout.settings.layout = 'Seoul';	
         this.margin = 0;
       }
       setTimeout(()=> {

@@ -115,7 +115,7 @@
       this.resized = this.sidebar_toggle_var;
       this.$store.dispatch('layout/set');
       // this.$router.replace({ 'query': null }).catch(err => err);
-      this.layout.settings.layout = this.$route.query.layout? this.$route.query.layout : 'Tokyo';
+      this.layout.settings.layout = this.$route.query.layout? this.$route.query.layout : 'Seoul';
       this.layoutobj = layoutClasses.find((item) => Object.keys(item).pop() === this.layout.settings.layout);
       this.layoutobj = JSON.parse(JSON.stringify(this.layoutobj))[this.layout.settings.layout]; 
     },
