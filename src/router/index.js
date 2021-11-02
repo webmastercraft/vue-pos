@@ -233,93 +233,35 @@ Vue.use(Router);
 
 const routes = [
   {
-    path: '/',
-    component: Body,
-    children: [
-    {
-      path: '',
-      name: 'Chart Js',
-      component: Chartjs,
-      meta: {
-        title: 'Home Page - Example App',
-        metaTags: [
-        {
-          name: 'description',
-          content: 'The home page of our example app.'
-        },
-        {
-          property: 'og:description',
-          content: 'The home page of our example app.'
-        }
-        ]
-      }
-    },
-    {
-      path: 'chartist',
-      name: 'Chartist',
-      component: Chartist,
-      meta: {
-        title: 'Chartist | Cuba - Premium Admin Template',
-      }
-    },
-    {
-      path: 'apexchart',
-      name: 'ApexChart',
-      component: ApexChart,
-      meta: {
-        title: 'ApexChart | Cuba - Premium Admin Template',
-      }
-    },
-    ]
-  },
-  {
     path: '',
     component: Body,
     children: [
       {
-        path: '',
-        name: 'home',
-        component: Landing,
+        path: '/',
+        name: 'Chart Js',
+        component: Chartjs,
         meta: {
-          title: 'Landing | Cuba - Premium Admin Template',
+          title: 'Home Page - Example App',
+          metaTags: [
+            {
+              name: 'description',
+              content: 'The home page of our example app.'
+            },
+            {
+              property: 'og:description',
+              content: 'The home page of our example app.'
+            }
+          ]
         }
       },
       {
-        path: 'software',
-        name: 'Software',
-        component: Category,
+        path: '/cart',
+        name: 'Cart',
+        component: Cart,
         meta: {
-          title: 'Default Dashboard | Cuba - Premium Admin Template'
-        },
-        props: { category: 'commerical', subcategory: 'software' },
+          title: 'Cart | Cuba - Premium Admin Template',
+        }
       },
-      {
-        path: 'business',
-        name: 'Business',
-        component: Category,
-        meta: {
-          title: 'Ecommerce Dashboard | Cuba - Premium Admin Template'
-        },
-        props: { category: 'commerical', subcategory: 'business' },
-      },
-      {
-        path: 'auto_electrician',
-        name: 'auto electrician',
-        component: Category,
-        meta: {
-          title: 'Default Dashboard | Cuba - Premium Admin Template'
-        },
-        props: { category: 'professional', subcategory: 'auto electrician' },
-      },
-      {
-        path: 'mechanical',
-        name: 'mechanical',
-        component: Category,
-        meta: {
-          title: 'Ecommerce Dashboard | Cuba - Premium Admin Template'
-        },
-        props: { category: 'professional', subcategory: 'mechanical' },
-      }
     ]
   },
 
@@ -331,14 +273,7 @@ const routes = [
         title: 'ProductDetails | Cuba - Premium Admin Template',
       }
   },
-  {
-    path: 'cart',
-    name: 'Cart',
-    component: Cart,
-     meta: {
-        title: 'Cart | Cuba - Premium Admin Template',
-      }
-  },
+
   {
     path: 'wishlist',
     name: 'Wishlist',

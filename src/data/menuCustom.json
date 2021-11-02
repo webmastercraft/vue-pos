@@ -13,7 +13,7 @@
       "active": false
     },
     {
-      "path": "/inventory",
+      "path": "/cart",
       "title": "Inventory",
       "icon": "box",
       "type": "link",
