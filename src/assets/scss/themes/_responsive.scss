@@ -2074,6 +2074,10 @@
       }
     }
 
+    .profile-dropdown:hover {
+      opacity: 1;
+      visibility: visible;
+    }
     .current_lang {
       .lang {
         span {
@@ -3252,7 +3256,7 @@
 
   .profile-media {
     .media-body {
-      // display: none;
+      display: none;
     }
   }
 
@@ -4174,13 +4178,13 @@
     }
   }
   $alert-color : $primary-color,
-$secondary-color,
-$success-color,
-$danger-color,
-$warning-color,
-$info-color,
-$light-color,
-$dark-color;
+  $secondary-color,
+  $success-color,
+  $danger-color,
+  $warning-color,
+  $info-color,
+  $light-color,
+  $dark-color;
 
 @each $var in $alert-name {
   $i: index($alert-name, $var);
@@ -4276,7 +4280,11 @@ $dark-color;
     }
   }
 
-  .profile-nav {
+  // .profile-nav{
+  //   display: none !important;
+  // }
+
+  .language-nav {
     display: none !important;
   }
 
@@ -6127,7 +6135,13 @@ $dark-color;
             right: 20px !important;
             width: 280px;
             position: fixed;
+            top: 50px !important;
           }
+        }
+
+        .onhover-dropdown:hover .onhover-show-div {
+          opacity: 1;
+          visibility: visible !important;
         }
       }
     }

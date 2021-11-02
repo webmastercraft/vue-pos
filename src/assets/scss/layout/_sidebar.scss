@@ -28,14 +28,14 @@
   box-shadow: $main-header-shadow;
   transform: translateY(30px);
   opacity: 0;
-  visibility: hidden;
+  // visibility: hidden;
   left: 0;
 }
 
 %for-animated-hover-box {
   opacity: 1;
   transform: translateY(0px);
-  visibility: visible;
+  // visibility: visible;
   border-radius: 5px;
   overflow: hidden;
 
