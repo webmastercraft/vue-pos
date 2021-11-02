@@ -6,97 +6,60 @@
       "type": "headtitle"
     },
     {
+      "path": "/",
       "title": "Cashier",
-      "icon": "shopping-bag",
-      "type": "sub",
-      "badgeType": "light-primary",
-      "badgeValue": "2",
-      "active": false,
-      "children": [
-        {
-          "path": "software",
-          "title": "software",
-          "type": "link"
-        },
-        {
-          "path": "business",
-          "title": "business",
-          "type": "link"
-        }
-      ]
-    },
-    {
-      "title": "inventory",
-      "icon": "scissors",
-      "type": "sub",
-      "badgeType": "light-primary",
-      "badgeValue": "2",
-      "active": false,
-      "children": [
-        {
-          "path": "auto_electrician",
-          "title": "auto electricican",
-          "type": "link",
-          "badgeType": "light-primary",
-          "badgeValue": "5"
-        },
-        {
-          "path": "mechanical",
-          "title": "mechanical",
-          "type": "link",
-          "badgeType": "light-primary",
-          "badgeValue": "5"
-        }
-      ]
-    },
-    {
-      "path": "/app/medical",
-      "title": "Orders",
-      "icon": "heart",
+      "icon": "monitor",
       "type": "link",
       "active": false
     },
     {
-      "path": "/app/industrial",
-      "title": "installments",
+      "path": "/inventory",
+      "title": "Inventory",
+      "icon": "box",
+      "type": "link",
+      "active": false
+    },
+    {
+      "path": "/order",
+      "title": "Orders",
       "icon": "truck",
       "type": "link",
       "active": false
     },
     {
-      "path": "/app/services",
-      "title": "expenses",
-      "icon": "briefcase",
+      "path": "/installment",
+      "title": "installments",
+      "icon": "percent",
+      "type": "link",
+      "active": false
+    },
+    {
+      "path": "/accountant",
+      "title": "Accountant",
+      "icon": "dollar-sign",
       "type": "link",
       "badgeType": "light-danger",
       "badgeValue": "latest",
       "active": false
     },
     {
-      "path": "/app/educational",
-      "title": "accountant",
-      "icon": "book-open",
+      "path": "/reports",
+      "title": "Reports",
+      "icon": "file-text",
       "type": "link",
       "bookmark": true
     },
     {
-      "path": "/app/tourism",
-      "title": "reports",
-      "icon": "coffee",
+      "path": "/employee",
+      "title": "Employee",
+      "icon": "user",
       "type": "link",
       "bookmark": true
-    },
+    },  
     {
-      "path": "/app/estate",
-      "title": "employees",
-      "icon": "home",
-      "type": "link",
-      "bookmark": true
-    },
-    {
-      "path": "/app/estate",
-      "title": "sync",
-      "icon": "home",
+      "path": "/sync",
+      "title": "Sync",
+      "icon": "repeat",
       "type": "link",
       "bookmark": true
     }
