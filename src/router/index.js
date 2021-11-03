@@ -262,6 +262,14 @@ const routes = [
           title: 'Cart | Cuba - Premium Admin Template',
         }
       },
+      {
+        path:'/pricing',
+        name:'Pricing',
+        component:Pricing,
+        meta: {
+          title: 'Pricing | Cuba - Premium Admin Template',
+        }
+      },
     ]
   },
 

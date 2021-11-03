@@ -15,6 +15,12 @@
         <a href="/users/profile"><feather type="user"></feather><span>User Profile </span></a>
       </li>
       <li>
+        <a href="/order"><feather type="user"></feather><span>Order </span></a>
+      </li>
+      <li>
+        <a href="/pricing"><feather type="user"></feather><span>Cash Drawer </span></a>
+      </li>
+      <li>
         <a @click="logout"
           ><feather type="log-in"></feather><span>Log out</span></a
         >
