@@ -750,7 +750,7 @@
         .profile-dropdown {
           width: 200px;
           top: 45px;
-          left: -30px;
+          left: -80px;
           padding: 0 10px;
 
           li {
@@ -840,6 +840,11 @@
   }
 
   .notifi-menu {
+    width: 200px !important;
+    left: 0 !important;
+    top: 45px;
+    text-transform: uppercase;
+
     li {
       padding: 10px !important;
       i {
