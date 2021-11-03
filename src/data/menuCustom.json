@@ -1,11 +1,6 @@
 {
   "data": [
     {
-      "headTitle1": "General",
-      "headTitle2": "Dashboards,Widgets & Layout.",
-      "type": "headtitle"
-    },
-    {
       "path": "/",
       "title": "Cashier",
       "icon": "monitor",
