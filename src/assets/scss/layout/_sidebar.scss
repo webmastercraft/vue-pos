@@ -83,6 +83,14 @@
   margin-left: 115px;
 }
 
+.header_app_name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
 
 .page-wrapper {
   position: relative;
@@ -740,8 +748,8 @@
         }
 
         .profile-dropdown {
-          width: 160px;
-          top: 57px;
+          width: 200px;
+          top: 45px;
           left: -30px;
           padding: 0 10px;
 
@@ -828,6 +836,90 @@
           }
         }
       }
+    }
+  }
+
+  .notifi-menu {
+    li {
+      padding: 10px !important;
+      i {
+        vertical-align: sub;
+      }
+
+      a {
+        text-decoration: unset;
+      }
+
+      + li {
+        margin-top: 0;
+      }
+
+      &:hover {
+        a {
+          span {
+            color: var(--theme-deafult);
+            transition: color 0.3s ease;
+          }
+
+          svg {
+            stroke: var(--theme-deafult);
+            transition: stroke 0.3s ease;
+
+            path {
+              stroke: var(--theme-deafult);
+              transition: stroke 0.3s ease;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        padding-top: 10px !important;
+      }
+
+      span {
+        color: $dark-color;
+      }
+
+      svg {
+        width: 16px;
+        vertical-align: bottom;
+        margin-right: 10px;
+        stroke: $dark-color;
+      }
+
+      /* The container <div> - needed to position the dropdown content */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Dropdown Content (Hidden by Default) */
+      .dropdown-content {
+        display: none;
+        position: relative;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Change color of dropdown links on hover */
+      .dropdown-content a:hover {background-color: #ddd;}
+
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {display: block;}
+
+      /* Change the background color of the dropdown button when the dropdown content is shown */
+      .dropdown:hover .dropbtn {background-color: #3e8e41;}
     }
   }
 
@@ -3104,6 +3196,14 @@
         left: unset !important;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1367px) {
+  .profile-dropdown.onhover-show-div.notifi-menu {
+    width: 200px !important;
+    left: 0 !important;
+    top: 45px;
   }
 }
 
