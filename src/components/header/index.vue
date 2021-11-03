@@ -3,36 +3,13 @@
         <SearchBar />
         <Logo />
         <div class="left-header col horizontal-wrapper pl-0">
-            <ul class="horizontal-menu">
-                <!-- <BonusUI />
-            <LevelMenu /> -->
-            </ul>
         </div>
+        <div class="header_app_name"><h3>Dailli App</h3></div>
         <div class="nav-right col-8 pull-right right-.page-wrapper .page-header p-0">
             <ul class="nav-menus">
                 <li class="language-nav">
                     <Language />
                 </li>
-                <!-- <li>
-              <span class="header-search"
-                ><feather type="search" @click="search_open()"></feather
-              ></span>
-            </li>
-            <Notifications />
-            <li class="onhover-dropdown">
-              <div class="notification-box">
-                <feather type="star" @click="bookmark_open()"></feather>
-              </div>
-              <Bookmark v-bind:activeclass="bookmark" />
-            </li>
-            <li>
-              <Mode />
-            </li>
-            <Cart />
-            <Message />
-            <li class="maximize">
-              <Maximize />
-            </li> -->
                 <Profile />
             </ul>
         </div>
@@ -45,14 +22,6 @@ import Profile from './profile';
 import Logo from './logo';
 import SearchBar from './search';
 import Language from './language';
-// import Bookmark from '../bookmark';
-// import BonusUI from './bonusUI';
-// import LevelMenu from './levelMenu';
-// import Notifications from './notifications';
-// import Mode from './mode';
-// import Cart from './cart';
-// import Message from './message';
-// import Maximize from './maximize';
 
 export default {
     name: 'Search',
@@ -61,14 +30,6 @@ export default {
         Profile,
         Logo,
         SearchBar,
-        // Bookmark,
-        // BonusUI,
-        // LevelMenu,
-        // Notifications,
-        // Mode,
-        // Cart,
-        // Message,
-        // Maximize,
     },
     data() {
         return {
