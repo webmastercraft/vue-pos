@@ -135,7 +135,7 @@
                         </form>
                       </b-card-text>
                     </b-tab>
-                    <b-tab>
+                    <!-- <b-tab>
                       <template #title>
                         <img src="../assets/images/login/auth0.svg" />
                         <span>Auth0</span>
@@ -169,18 +169,34 @@
                           </p>
                         </form>
                       </b-card-text>
-                    </b-tab>
+                    </b-tab> -->
                     <b-tab>
                       <template #title>
                         <img src="../assets/images/login/jwt.svg" />
-                        <span>JWT</span>
+                        <span>Login As Shop's Stuff</span>
                       </template>
                       <b-card-text>
-                        <div class="alert alert-info">
+                        <!-- <div class="alert alert-info">
                           Username: test<br />
                           Password: test
-                        </div>
+                        </div> -->
                         <form class="theme-form" @submit.prevent="handleSubmit">
+                          <div class="form-group">
+                            <label for="username">Shopname</label>
+                            <input
+                              type="text"
+                              v-model="shopname"
+                              name="shopname"
+                              class="form-control"
+                              :class="{ 'is-invalid': submitted && !shopname }"
+                            />
+                            <div
+                              v-show="submitted && !shopname"
+                              class="invalid-feedback"
+                            >
+                              Shopname is required
+                            </div>
+                          </div>
                           <div class="form-group">
                             <label for="username">Username</label>
                             <input
@@ -260,6 +276,7 @@
         email: 'test@admin.com',
         password: 'test@123456',
         username: '',
+        shopname: '',
         passwordjwt: '',
         submitted: false,
       };
@@ -278,7 +295,8 @@
       // JWT authentication
       handleSubmit() {
         this.submitted = true;
-        const { username, passwordjwt } = this;
+        console.log('what is this = ', this);
+        const { shopname, username, passwordjwt } = this;
         const { dispatch } = this.$store;
         if (username && passwordjwt) {
           dispatch('authentication/login', { username, passwordjwt });
