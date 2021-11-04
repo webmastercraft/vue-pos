@@ -723,9 +723,8 @@
         border: 1px solid $light-color;
         border-radius: 5px;
         // background-color: #f8f8f8;
-    padding: 5px;
+        padding: 5px;
       }
-
     }
   }
 
@@ -734,6 +733,19 @@
   }
 }
 
+.payment_tab {
+  .card .card-body {
+    padding: 0;
+  }
+  .tabbed-card ul {
+    position: relative;
+    left: 0 !important;
+    top: 8px !important;
+    border-bottom: 1px solid;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+}
 
 
 .product-page-details {
