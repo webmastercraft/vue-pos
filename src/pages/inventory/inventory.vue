@@ -8,7 +8,7 @@
                 <b-tabs pills slot="header" class="tabbed-card border-tab nav-primary">
                     <b-tab title="Categories" active>
                         <template slot="title">
-                            Home
+                            Categories
                         </template>
                         <div class="row">
                             <div class="col-sm-12 empty-cart-cls text-center"  v-if="!cart.length">
@@ -40,6 +40,7 @@
                                                         <b-dropdown-item variant="primary">Add</b-dropdown-item>
                                                         <b-dropdown-item variant="secondary">Edit</b-dropdown-item>
                                                         <b-dropdown-item variant="danger"> Remove</b-dropdown-item>
+                                                        <b-dropdown-item variant="danger"> Duplicate</b-dropdown-item>
                                                     </b-dropdown>
                                                 </b-button-group>
                                             </td>

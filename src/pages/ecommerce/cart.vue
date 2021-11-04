@@ -17,67 +17,51 @@
                       <h4>Add something to make me happy :)</h4>
                       <router-link :to="'/ecommerce/product'" class="btn btn-primary cart-btn-transform m-t-15">continue shopping</router-link>
                     </div>
-                    <div class="order-history table-responsive wishlist" v-if="cart.length">
-                      <table class="table table-bordered">
-                        <thead>
-                          <tr>
-                            <!-- <th>Prdouct</th> -->
-                            <th>Prdouct Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Action</th>
-                            <!-- <th>Total</th> -->
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr v-for="(item,index) in cart" :key="index">
-                            <!-- <td><img class="img-fluid img-40" :src='getImgUrl(item.images[0])' alt="#"></td> -->
-                            <td>
-                              <div class="product-name"><router-link :to="'/ecommerce/details/'+item.sku">{{item.name}}</router-link></div>
-                            </td>
-                            <td>{{item.price | currency}}</td>
-                            <td>
-                              <fieldset class="qty-box m-auto p-0">
-                                <div class="input-group addToCart">
-                                  <i class="fa fa-minus btnGtr1"  v-on:click="decrement(item)"></i>
-                                  <input class="touchspin text-center" v-model="item.quantity" name="item.quantity" type="text" >
-                                  <i class="fa fa-plus btnLess1"  v-on:click="increment(item)"></i>
-                                </div>
-                              </fieldset>
-                            </td>
-                            <td class="card-body btn-group-wrapper">
-                              <b-button-group>
-                                <b-dropdown left text="More" variant="light">
-                                  <b-dropdown-item variant="primary">Discount</b-dropdown-item>
-                                  <b-dropdown-item variant="secondary">Edit</b-dropdown-item>
-                                  <b-dropdown-item variant="danger"> Remove</b-dropdown-item>
-                                </b-dropdown>
-                              </b-button-group>
-                            </td>
-                            <!-- <td>{{item.price * item.quantity | currency}}</td> -->
-                          </tr>
-                          <tr>
-                            <!-- <td colspan="4">                                           
-                              <div class="input-group">
-                                <input class="form-control mr-2" type="text" placeholder="Enter coupan code"><a class="btn btn-primary" href="#">Apply</a>
-                              </div>
-                            </td> -->
-                            <td class="total-amount">
-                              <h6 class="m-0 text-right"><span class="f-w-600">Total Price :</span></h6>
-                            </td>
-                            <td><span>{{getAmount | currency}}  </span></td>
-                          </tr>
-                          <!-- <tr>
-                            <td class="text-right" colspan="5">
-                              <router-link :to="'/ecommerce/product'" class="btn btn-secondary cart-btn-transform">continue shopping</router-link>
-                            </td>
-                            <td>
-                              <router-link :to="'/ecommerce/checkout'" class="btn btn-primary cart-btn-transform"> check out</router-link>
-                            </td>
-                          </tr> -->
-                        </tbody>
-                      </table>
+                    <div class="table-responsive vue-smart">
+                        <v-table
+                            :data="cart" class="table"
+                            :currentPage.sync="filter.currentPage"
+                            :pageSize="10"
+                            @totalPagesChanged="filter.totalPages = $event"
+                            :filters="filters"
+                        >
+                            <thead slot="head">
+                                <!-- <v-th sortKey="position">ID</v-th> -->
+                                <v-th sortKey="name">Name</v-th>
+                                <v-th sortKey="price">Price</v-th>
+                                <v-th sortKey="qty">Quantity</v-th>
+                                <v-th sortKey="action">Action</v-th>
+                            </thead>
+                            <tbody slot="body" slot-scope="{displayData}">
+                                <tr v-for="row in displayData" :key="row.id">
+                                    <td>{{ row.name }}</td>
+                                    <td>{{ row.price }}</td>
+                                    <td>{{ row.quantity }}</td>
+                                    <td>
+                                        <b-button-group>
+                                            <b-dropdown left text="Operations" variant="light">
+                                                <b-dropdown-item variant="primary">Discount</b-dropdown-item>
+                                                <b-dropdown-item variant="secondary">Edit</b-dropdown-item>
+                                                <b-dropdown-item variant="danger"> Remove</b-dropdown-item>
+                                            </b-dropdown>
+                                        </b-button-group>
+                                    </td>
+                                </tr>
+                                <tr>
+                                  <td class="total-amount">
+                                    <h6 class="m-0 text-right"><span class="f-w-600">Total Price :</span></h6>
+                                  </td>
+                                  <td><span>{{getAmount | currency}}</span></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                            </tbody>
+                        </v-table>
                     </div>
+                    <smart-pagination
+                      :currentPage.sync="filter.currentPage"
+                      :totalPages="filter.totalPages"
+                    />
                   </div>
                 </div>
                 <!-- Container-fluid Ends-->
@@ -90,7 +74,37 @@
             <button type="button" @click="quickPayView(0)" class="btn btn-outline-success m-10">Pay</button>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 custom_hold_order">
+          <px-card title="Hold Orders" :actions="false" class="hold_cards">
+            <div slot="with-padding">
+              <div class="row">
+                <div class="col-xl-3 col-md-6 box-col-6">
+                  <div class="prooduct-details-box">                                 
+                    <div class="media">
+                      <div class="media-body ml-3">
+                        <div class="product-name">
+                          <h6>Hold 1</h6>
+                        </div>
+                        <feather class="close" type="x"></feather>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-md-6 box-col-6">
+                  <div class="prooduct-details-box">                                 
+                    <div class="media">
+                      <div class="media-body ml-3">
+                        <div class="product-name">
+                          <h6>Hold 2</h6>
+                        </div>
+                        <feather class="close"  type="x"></feather>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </px-card>
           <ProductList />
         </div>
       </div>
@@ -215,6 +229,10 @@
     },
     data(){
       return{
+        filter:{
+          currentPage: 1,
+          totalPages: 0,
+        },
         counter: 1,
         modalShow: false,
         payModalShow: false,
