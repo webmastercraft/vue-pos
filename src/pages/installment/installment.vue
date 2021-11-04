@@ -6,7 +6,7 @@
         <b-card header-tag="div" no-body>
             <b-card-body>
                 <b-tabs pills slot="header" class="tabbed-card border-tab nav-primary">
-                    <a href="/installment" class="new_order_link">Re-installment</a>
+                    <a @click="quickView" class="new_order_link">Re-installment</a>
                     <b-tab title="Order List">
                         <template slot="title">
                             Order List
@@ -63,7 +63,7 @@
                                                         <td>
                                                             <b-button-group>
                                                                 <b-dropdown left text="Operations" variant="light">
-                                                                    <b-dropdown-item variant="primary">Pay</b-dropdown-item>
+                                                                    <b-dropdown-item variant="primary" @click="quickView">Pay</b-dropdown-item>
                                                                     <b-dropdown-item variant="secondary">Edit</b-dropdown-item>
                                                                     <b-dropdown-item variant="danger">Print</b-dropdown-item>
                                                                 </b-dropdown>
@@ -89,9 +89,97 @@
     <!-- Container-fluid Ends-->
     <!-- QuickView Modal -->
     <b-modal size="lg" centered v-model="modalShow" hide-footer hide-header>
-        <button class="close" type="button" v-on:click="quickViewClose(modalShow)">
-            <span>×</span>
-        </button>
+      <div class="col-sm-12 col-xl-6 xl-100 box-col-12 payment_tab">
+          <b-card header-tag="div" no-body>
+              <b-card-body>
+                  <b-tabs pills slot="header" class="tabbed-card">
+                      <b-tab title="Card" active>
+                          <div class="card height-equal">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-4 text-center"><img class="img-fluid" src="../../assets/images/ecommerce/card.png" alt=""></div>
+                                <div class="col-md-8">
+                                  <form class="theme-form mega-form">
+                                    <div class="form-group">
+                                      <input class="form-control" type="text" placeholder="Card number">
+                                    </div>
+                                    <div class="form-group">
+                                      <input class="form-control" type="text" placeholder="Transaction ID">
+                                    </div>
+                                    <div class="col-12">
+                                      <button class="btn btn-primary-gradien btn-block" type="button" data-original-title="btn btn-primary-gradien" title="">Submit</button>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </b-tab>
+                      <b-tab title="Cash">
+                          <div class="card">
+                            <div class="card-body">
+                              <form class="theme-form row">
+                                <div class="form-group col-6">
+                                  <input class="form-control" type="number" placeholder="Total Price ($1000)">
+                                </div>
+                                <div class="form-group col-6">
+                                  <input class="form-control" type="number" placeholder="Given Price ($700)">
+                                </div>
+                                <div class="form-group col-6">
+                                  <input class="form-control" type="number" placeholder="Remain Price ($300)">
+                                </div>
+                                <div class="col-12">
+                                  <button class="btn btn-primary-gradien btn-block" type="button" data-original-title="btn btn-primary-gradien" title="">Submit</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                      </b-tab>
+                      <b-tab title="Installment">
+                        <div class="card height-equal">
+                          <div class="card-body">
+                            <form class="theme-form e-commerce-form row">
+                              <div class="form-group col-6 p-r-0">
+                                <input class="form-control" type="text" placeholder="Total Price ($500)">
+                              </div>
+                              <div class="form-group col-6">
+                                <input class="form-control" type="text" placeholder="Given Price ($500)">
+                              </div>
+                              <div class="form-group col-6 p-r-0">
+                                <input class="form-control" type="text" placeholder="Remain Price ($500)">
+                              </div>
+                              <div class="form-group col-6">
+                                <input class="form-control" type="text" placeholder="Dividing 2">
+                              </div>
+                              <div class="col-12">
+                                <label class="col-form-label p-t-0">Next Payment Date and Amount</label>
+                              </div>
+                              <div class="form-group col-6">
+                                  <b-form-input class="form-control" type="datetime-local" value="2020-01-19T18:45:00"></b-form-input>
+                              </div>
+                              <div class="form-group col-6 p-r-0">
+                                <input class="form-control" type="text" placeholder="Amount ($500)">
+                              </div>
+                              <div class="col-12">
+                                <label class="col-form-label p-t-0">Next Payment Date and Amount</label>
+                              </div>
+                              <div class="form-group col-6">
+                                  <b-form-input type="datetime-local" value="2021-01-19T18:45:00"></b-form-input>
+                              </div>
+                              <div class="form-group col-6 p-r-0">
+                                <input class="form-control" type="text" placeholder="Amount ($500)">
+                              </div>
+                              <div class="col-12">
+                                <button class="btn btn-primary-gradien btn-block" type="button" data-original-title="btn btn-primary-gradien" title="">Submit</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </b-tab>
+                  </b-tabs>
+              </b-card-body>
+          </b-card>
+      </div>
     </b-modal>
   </div>
 </template> 
