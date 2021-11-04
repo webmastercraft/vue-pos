@@ -13,7 +13,7 @@
               :per-page="5" 
               :loop="true" 
               paginationPosition="bottom-overlay"
-              :perPageCustom="[[280, 1], [360, 2], [992, 5],]"
+              :perPageCustom="[[280, 1], [360, 2], [992, 3],]"
             >
               <Slide
                 v-for="(product,index) in filterProduct"

@@ -137,6 +137,12 @@
   }
 }
 
+.cashier-btn-group {
+  .btn {
+    min-width: 100px;
+  }
+}
+
 @media only screen and (max-width: 1199px) {
   .order-history {
     table {

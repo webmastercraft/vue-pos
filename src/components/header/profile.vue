@@ -9,15 +9,6 @@
     </div>
     <ul class="profile-dropdown onhover-show-div">
       <li>
-        <a href="/shops/creat"><feather type="archive"></feather><span>Shop Profile </span></a>
-      </li>
-      <li>
-        <a href="/users/profile"><feather type="user"></feather><span>User Profile </span></a>
-      </li>
-      <li>
-        <a href="/order"><feather type="gift"></feather><span>Order </span></a>
-      </li>
-      <li>
         <a href="/pricing"><feather type="grid"></feather><span>Cash Drawer </span></a>
       </li>
       <li>

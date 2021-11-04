@@ -18,7 +18,10 @@
                                         </div>
                                     </div>
                                     <ul class="nav main-menu" role="tablist">
-                                        <li @click="setactiveemails(0)" class="nav-item"><a class="btn-primary btn-block btn-mail" id="pills-darkhome-tab" data-toggle="pill" href="#pills-darkhome" role="tab" aria-controls="pills-darkhome" aria-selected="true"><i class="icofont icofont-envelope mr-2"></i> NEW MAIL</a></li>
+                                        <li @click="setactiveemails(0)" class="nav-item">
+                                            <a class="btn-primary btn-block btn-mail" id="pills-darkhome-tab" data-toggle="pill" href="#pills-darkhome" role="tab" aria-controls="pills-darkhome" aria-selected="true">
+                                                <i class="icofont icofont-envelope mr-2"></i> NEW MAIL</a>
+                                        </li>
                                         <li @click='type = "inbox"' class="nav-item"><a class="show" id="pills-darkprofile-tab" data-toggle="pill" href="#pills-darkprofile" role="tab" aria-controls="pills-darkprofile" aria-selected="false"><span class="title"><i class="icon-import"></i> Inbox</span><span class="badge pull-right digits">({{index}})</span></a></li>
                                         <li @click='type = "all mail"' ><a href="#"><span class="title"><i class="icon-folder"></i> All mail</span></a></li>
                                         <li @click='type = "sent"'><a href="#"><span class="title"><i class="icon-new-window"></i> Sent</span><span class="badge pull-right digits">({{send}})</span></a></li>
