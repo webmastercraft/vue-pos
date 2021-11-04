@@ -226,6 +226,7 @@ import Inventory from '../pages/inventory/inventory';
 import Orders from '../pages/orders/orders';
 import Installment from '../pages/installment/installment';
 import Expenses from '../pages/expenses/expenses';
+import Accountant from '../pages/accountant/accountant';
 
 Vue.use(Router);
 
@@ -296,6 +297,14 @@ const routes = [
         path:'/expenses',
         name:'Expenses',
         component: Expenses,
+        meta: {
+          title: 'Pricing | Cuba - Premium Admin Template',
+        }
+      },
+      {
+        path:'/accountant',
+        name:'Accountant',
+        component: Accountant,
         meta: {
           title: 'Pricing | Cuba - Premium Admin Template',
         }

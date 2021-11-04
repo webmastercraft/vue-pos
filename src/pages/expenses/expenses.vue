@@ -98,7 +98,7 @@ import { mapState, mapGetters } from 'vuex';
 import users from '../../data/users';
   
   export default {
-    name:'Orders',
+    name:'Expenses',
     components: {
     },
     data(){
