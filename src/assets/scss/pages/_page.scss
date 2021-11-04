@@ -70,6 +70,21 @@ $warning-color;
           margin-bottom: 10px;
         }
 
+        a.new_order_link {
+          position: absolute;
+          top: 20px;
+          left: 130px;
+          background: #eae8ff;
+          color: #7366ff;
+          padding: 5px;
+          border-radius: 5px;
+        }
+
+        a.new_order_link:hover {
+          background: #d2d1d9;
+          color: #06bd1c;
+        }
+
         .row {
           margin-left: 0;
           margin-right: 0;
