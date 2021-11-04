@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Breadcrumbs main="" title="Inventory"/>
+    <Breadcrumbs main="" title="Account"/>
     <!-- Container-fluid starts-->
     <div class="container-fluid pos_custom_table">
         <b-card header-tag="div" no-body>
