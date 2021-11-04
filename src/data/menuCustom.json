@@ -29,6 +29,13 @@
       "active": false
     },
     {
+      "path": "/expenses",
+      "title": "expenses",
+      "icon": "tag",
+      "type": "link",
+      "active": false
+    },
+    {
       "path": "/accountant",
       "title": "Accountant",
       "icon": "dollar-sign",

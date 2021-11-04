@@ -225,6 +225,7 @@ import HoverEffect from '../pages/gallery/hover-effect';
 import Inventory from '../pages/inventory/inventory';
 import Orders from '../pages/orders/orders';
 import Installment from '../pages/installment/installment';
+import Expenses from '../pages/expenses/expenses';
 
 Vue.use(Router);
 
@@ -287,6 +288,14 @@ const routes = [
         path:'/installment',
         name:'Installment',
         component: Installment,
+        meta: {
+          title: 'Pricing | Cuba - Premium Admin Template',
+        }
+      },
+      {
+        path:'/expenses',
+        name:'Expenses',
+        component: Expenses,
         meta: {
           title: 'Pricing | Cuba - Premium Admin Template',
         }
