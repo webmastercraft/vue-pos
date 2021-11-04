@@ -4,6 +4,39 @@
       :class="filtered ? 'container-fluid product-wrapper sidebaron' : 'container-fluid product-wrapper'" 
     >
       <div class="product-grid">
+        <div class="row">
+          <div class="col-6">
+            <div class="mb-2">
+              <div class="col-form-label">Category</div>
+                <multiselect  
+                  v-model="categoryDirection" 
+                  :allow-empty="false" 
+                  openDirection="down" 
+                  tag-placeholder="Add this as new tag" 
+                  placeholder="Search or add a tag" 
+                  label="name" 
+                  track-by="code" 
+                  :options="categories" :multiple="true" :taggable="true" @tag="addCategory">
+                </multiselect>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="mb-2">
+              <div class="col-form-label">Type</div>
+                <multiselect  
+                  v-model="typeDirection" 
+                  :allow-empty="false" 
+                  openDirection="down" 
+                  tag-placeholder="Add this as new tag" 
+                  placeholder="Search or add a tag" 
+                  label="name" 
+                  track-by="code" 
+                  :options="types" :multiple="true" :taggable="true" @tag="addType">
+                </multiselect>
+            </div>
+          </div>
+        </div>
+
         <div v-if="filteredProducts.length == 0" class="slider_views">
           <div class="shop_slider_view">
             <div class="silder_title">
@@ -135,16 +168,38 @@
   import { mapGetters } from 'vuex';
   import Slider from '../ecommerce/filterbar';
   import { Carousel, Slide } from 'vue-carousel';
-  
+  import Multiselect from 'vue-multiselect';
+
   export default {
     name: 'landing',
     components: {
       Slider,
       Carousel,
-      Slide
+      Slide,
+      Multiselect
     },
     data() {
       return {
+        categoryDirection:[
+          { name: 'Woman', code: '1' }
+        ],
+        typeDirection:[
+          { name: 'Shirt', code: '1' }
+        ],
+        categories: [
+          { code: 1, name: 'Woman' },
+          { code: 2, name: 'Man' },
+          { code: 3, name: 'Adult' },
+          { code: 4, name: 'Child' },
+          { code: 5, name: 'Youth' }
+        ],
+        types: [
+          { code: 1, name: 'Shirt' },
+          { code: 2, name: 'Cat' },
+          { code: 3, name: 'Groove' },
+          { code: 4, name: 'Shoe' },
+          { code: 5, name: 'Bag' }
+        ],
         modalShow: false,
         quickViewProduct: [],
         counter: 1,
@@ -173,6 +228,23 @@
       }),
     },
     methods: {
+      addCategory (newTag) {
+        const tag = {
+          name: newTag,
+          code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000))
+        };
+        this.options.push(tag);
+        this.value.push(tag);
+      },
+
+      addType (newTag) {
+        const tag = {
+          name: newTag,
+          code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000))
+        };
+        this.options.push(tag);
+        this.value.push(tag);
+      },
       //search products
       searchProducts: function()
       {
