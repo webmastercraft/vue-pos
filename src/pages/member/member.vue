@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Breadcrumbs main="" title="Inventory"/>
+    <Breadcrumbs main="" title="Employee"/>
     <!-- Container-fluid starts-->
     <div class="container-fluid pos_custom_table">
         <b-card header-tag="div" no-body>
@@ -76,25 +76,17 @@
                                             >
                                                 <thead slot="head">
                                                     <v-th sortKey="name">Name</v-th>
-                                                    <v-th sortKey="position">Position</v-th>
-                                                    <v-th sortKey="office">Office</v-th>
-                                                    <v-th sortKey="age">Age</v-th>
-                                                    <v-th sortKey="startdate">Start date</v-th>
-                                                    <v-th sortKey="salary">Salary</v-th>
+                                                    <v-th sortKey="position">Group</v-th>
                                                     <v-th sortKey="salary">Action</v-th>
                                                 </thead>
                                                 <tbody slot="body" slot-scope="{displayData}">
                                                     <tr v-for="row in displayData" :key="row.id">
                                                         <td>{{ row.name }}</td>
-                                                        <td>{{ row.position }}</td>
-                                                        <td>{{ row.office }}</td>
                                                         <td>{{ row.age }}</td>
-                                                        <td>{{ row.startdate }}</td>
-                                                        <td>{{ row.salary }}</td>
                                                         <td>
                                                             <b-button-group>
                                                                 <b-dropdown left text="Operations" variant="light">
-                                                                    <b-dropdown-item variant="primary">Add</b-dropdown-item>
+                                                                    <b-dropdown-item variant="primary">View</b-dropdown-item>
                                                                     <b-dropdown-item variant="secondary">Edit</b-dropdown-item>
                                                                     <b-dropdown-item variant="danger"> Remove</b-dropdown-item>
                                                                 </b-dropdown>
