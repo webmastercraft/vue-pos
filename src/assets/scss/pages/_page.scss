@@ -85,6 +85,14 @@ $warning-color;
           color: #06bd1c;
         }
 
+        button.add_option_btn {
+          margin-left: 10px;
+        }
+
+        .filter-smart {
+          margin-bottom: 10px;
+        }
+
         .row {
           margin-left: 0;
           margin-right: 0;
@@ -125,5 +133,14 @@ $warning-color;
         }
       }      
     }
+  }
+}
+
+//modal header
+.modal_header_custom {
+  white-space: nowrap;
+
+  h5 {
+    display: inline-block;
   }
 }

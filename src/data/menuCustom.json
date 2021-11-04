@@ -45,14 +45,7 @@
       "active": false
     },
     {
-      "path": "/reports",
-      "title": "Reports",
-      "icon": "file-text",
-      "type": "link",
-      "bookmark": true
-    },
-    {
-      "path": "/employee",
+      "path": "/member",
       "title": "Employee",
       "icon": "user",
       "type": "link",
