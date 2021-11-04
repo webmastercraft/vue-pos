@@ -1,21 +1,21 @@
 {
   "data": [
     {
-      "path": "/",
+      "path": "/cashier",
       "title": "Cashier",
       "icon": "monitor",
       "type": "link",
       "active": false
     },
     {
-      "path": "/cart",
+      "path": "/inventory",
       "title": "Inventory",
       "icon": "box",
       "type": "link",
       "active": false
     },
     {
-      "path": "/order",
+      "path": "/orders",
       "title": "Orders",
       "icon": "truck",
       "type": "link",

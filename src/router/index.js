@@ -221,13 +221,9 @@ import GalleryMasonary from '../pages/gallery/masonary-gallery';
 import GalleryMasonaryDesc from '../pages/gallery/masonary-desc';
 import HoverEffect from '../pages/gallery/hover-effect';
 
-// landing
-import Landing from '../pages/landing/landing';
-import Category from '../pages/category/category';
-
-// pos app
-
-
+// POS
+import Inventory from '../pages/inventory/inventory';
+import Orders from '../pages/orders/orders';
 
 Vue.use(Router);
 
@@ -255,17 +251,33 @@ const routes = [
         }
       },
       {
-        path: '/cart',
-        name: 'Cart',
+        path: '/cashier',
+        name: 'cashier',
         component: Cart,
         meta: {
           title: 'Cart | Cuba - Premium Admin Template',
         }
       },
       {
-        path:'/pricing',
-        name:'Pricing',
-        component:Pricing,
+        path:'/cash_drawer',
+        name:'Cash Drawer',
+        component: Pricing,
+        meta: {
+          title: 'Pricing | Cuba - Premium Admin Template',
+        }
+      },
+      {
+        path:'/inventory',
+        name:'Cash Drawer',
+        component: Inventory,
+        meta: {
+          title: 'Pricing | Cuba - Premium Admin Template',
+        }
+      },
+      {
+        path:'/orders',
+        name:'Orders',
+        component: Orders,
         meta: {
           title: 'Pricing | Cuba - Premium Admin Template',
         }
