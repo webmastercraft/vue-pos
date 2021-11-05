@@ -11,6 +11,7 @@
                             Categories
                         </template>
                         <div class="row">
+                            <a @click="quickView" class="new_order_link">New Category</a>
                             <div class="col-sm-12 empty-cart-cls text-center"  v-if="!cart.length">
                                 <img :src='getImgUrl("ecommerce/icon-empty-cart.png")' class="img-fluid mb-4">
                                 <h3><strong>Your Cart is Empty</strong></h3>
@@ -37,10 +38,9 @@
                                             <td>
                                                 <b-button-group>
                                                     <b-dropdown left text="Operations" variant="light">
-                                                        <b-dropdown-item variant="primary">Add</b-dropdown-item>
+                                                        <b-dropdown-item variant="primary">Duplicate</b-dropdown-item>
                                                         <b-dropdown-item variant="secondary">Edit</b-dropdown-item>
                                                         <b-dropdown-item variant="danger"> Remove</b-dropdown-item>
-                                                        <b-dropdown-item variant="danger"> Duplicate</b-dropdown-item>
                                                     </b-dropdown>
                                                 </b-button-group>
                                             </td>
@@ -58,151 +58,140 @@
                         <template slot="title">
                             Items
                         </template>
-                        <b-card-text>
-                            <div class="row">
-                                <div class="card-body">
-                                    <div class="datatable-vue m-0">
-                                        <div class="row filter-smart">
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.name.value" placeholder="Name"/>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.position.value" placeholder="Position" />
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.office.value" placeholder="Office" />
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.age.value" placeholder="Age" />
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.startdate.value" placeholder="Start Date" />
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.salary.value" placeholder="Salary" />
-                                            </div>
-                                        </div>
-                                        <div class="table-responsive vue-smart">
-                                            <v-table
-                                                :data="users.data" class="table"
-                                                :currentPage.sync="filter.currentPage"
-                                                :pageSize="10"
-                                                @totalPagesChanged="filter.totalPages = $event"
-                                                :filters="filters"
-                                            >
-                                                <thead slot="head">
-                                                    <v-th sortKey="name">Name</v-th>
-                                                    <v-th sortKey="position">Position</v-th>
-                                                    <v-th sortKey="office">Office</v-th>
-                                                    <v-th sortKey="age">Age</v-th>
-                                                    <v-th sortKey="startdate">Start date</v-th>
-                                                    <v-th sortKey="salary">Salary</v-th>
-                                                    <v-th sortKey="salary">Action</v-th>
-                                                </thead>
-                                                <tbody slot="body" slot-scope="{displayData}">
-                                                    <tr v-for="row in displayData" :key="row.id">
-                                                        <td>{{ row.name }}</td>
-                                                        <td>{{ row.position }}</td>
-                                                        <td>{{ row.office }}</td>
-                                                        <td>{{ row.age }}</td>
-                                                        <td>{{ row.startdate }}</td>
-                                                        <td>{{ row.salary }}</td>
-                                                        <td>
-                                                            <b-button-group>
-                                                                <b-dropdown left text="Operations" variant="light">
-                                                                    <b-dropdown-item variant="primary">Add</b-dropdown-item>
-                                                                    <b-dropdown-item variant="secondary">Edit</b-dropdown-item>
-                                                                    <b-dropdown-item variant="danger"> Remove</b-dropdown-item>
-                                                                </b-dropdown>
-                                                            </b-button-group>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </v-table>
-                                        </div>
-                                        <smart-pagination
-                                        :currentPage.sync="filter.currentPage"
-                                        :totalPages="filter.totalPages"
-                                        />
-                                    </div>
+                        <div class="row">
+                            <a @click="quickView" class="new_order_link">New Item</a>
+                            <div class="row filter-smart">
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.name.value" placeholder="Name"/>
+                                </div>
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.position.value" placeholder="Position" />
+                                </div>
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.office.value" placeholder="Office" />
+                                </div>
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.age.value" placeholder="Age" />
+                                </div>
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.startdate.value" placeholder="Start Date" />
+                                </div>
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.salary.value" placeholder="Salary" />
                                 </div>
                             </div>
-                        </b-card-text>
+                            <div class="table-responsive vue-smart">
+                                <v-table
+                                    :data="users.data" class="table"
+                                    :currentPage.sync="filter.currentPage"
+                                    :pageSize="10"
+                                    @totalPagesChanged="filter.totalPages = $event"
+                                    :filters="filters"
+                                >
+                                    <thead slot="head">
+                                        <v-th sortKey="name">Name</v-th>
+                                        <v-th sortKey="position">Position</v-th>
+                                        <v-th sortKey="office">Office</v-th>
+                                        <v-th sortKey="age">Age</v-th>
+                                        <v-th sortKey="startdate">Start date</v-th>
+                                        <v-th sortKey="salary">Salary</v-th>
+                                        <v-th sortKey="salary">Action</v-th>
+                                    </thead>
+                                    <tbody slot="body" slot-scope="{displayData}">
+                                        <tr v-for="row in displayData" :key="row.id">
+                                            <td>{{ row.name }}</td>
+                                            <td>{{ row.position }}</td>
+                                            <td>{{ row.office }}</td>
+                                            <td>{{ row.age }}</td>
+                                            <td>{{ row.startdate }}</td>
+                                            <td>{{ row.salary }}</td>
+                                            <td>
+                                                <b-button-group>
+                                                    <b-dropdown left text="Operations" variant="light">
+                                                        <b-dropdown-item variant="primary">Add</b-dropdown-item>
+                                                        <b-dropdown-item variant="secondary">Edit</b-dropdown-item>
+                                                        <b-dropdown-item variant="danger"> Remove</b-dropdown-item>
+                                                    </b-dropdown>
+                                                </b-button-group>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </v-table>
+                            </div>
+                            <smart-pagination
+                            :currentPage.sync="filter.currentPage"
+                            :totalPages="filter.totalPages"
+                            />
+                        </div>
                     </b-tab>
                     <b-tab title="Discounts">
                         <template slot="title">
                             Discounts
                         </template>
-                        <b-card-text>
-                            <div class="row">
-                                <div class="card-body">
-                                    <div class="datatable-vue m-0">
-                                        <div class="row filter-smart">
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.name.value" placeholder="Name"/>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.position.value" placeholder="Position" />
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.office.value" placeholder="Office" />
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.age.value" placeholder="Age" />
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.startdate.value" placeholder="Start Date" />
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <input class="form-control" v-model="filters.salary.value" placeholder="Salary" />
-                                            </div>
-                                        </div>
-                                        <div class="table-responsive vue-smart">
-                                            <v-table
-                                                :data="users.data" class="table"
-                                                :currentPage.sync="filter.currentPage"
-                                                :pageSize="10"
-                                                @totalPagesChanged="filter.totalPages = $event"
-                                                :filters="filters"
-                                            >
-                                                <thead slot="head">
-                                                    <v-th sortKey="name">Name</v-th>
-                                                    <v-th sortKey="position">Position</v-th>
-                                                    <v-th sortKey="office">Office</v-th>
-                                                    <v-th sortKey="age">Age</v-th>
-                                                    <v-th sortKey="startdate">Start date</v-th>
-                                                    <v-th sortKey="salary">Salary</v-th>
-                                                    <v-th sortKey="salary">Action</v-th>
-                                                </thead>
-                                                <tbody slot="body" slot-scope="{displayData}">
-                                                    <tr v-for="row in displayData" :key="row.id">
-                                                        <td>{{ row.name }}</td>
-                                                        <td>{{ row.position }}</td>
-                                                        <td>{{ row.office }}</td>
-                                                        <td>{{ row.age }}</td>
-                                                        <td>{{ row.startdate }}</td>
-                                                        <td>{{ row.salary }}</td>
-                                                        <td>
-                                                            <b-button-group>
-                                                                <b-dropdown left text="Operations" variant="light">
-                                                                    <b-dropdown-item variant="primary">Add</b-dropdown-item>
-                                                                    <b-dropdown-item variant="secondary">Edit</b-dropdown-item>
-                                                                    <b-dropdown-item variant="danger"> Remove</b-dropdown-item>
-                                                                </b-dropdown>
-                                                            </b-button-group>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </v-table>
-                                        </div>
-                                        <smart-pagination
-                                        :currentPage.sync="filter.currentPage"
-                                        :totalPages="filter.totalPages"
-                                        />
-                                    </div>
+                        <div class="row">
+                            <div class="row filter-smart">
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.name.value" placeholder="Name"/>
+                                </div>
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.position.value" placeholder="Position" />
+                                </div>
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.office.value" placeholder="Office" />
+                                </div>
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.age.value" placeholder="Age" />
+                                </div>
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.startdate.value" placeholder="Start Date" />
+                                </div>
+                                <div class="col-sm-2 col-12">
+                                    <input class="form-control" v-model="filters.salary.value" placeholder="Salary" />
                                 </div>
                             </div>
-                        </b-card-text>
+                            <div class="table-responsive vue-smart">
+                                <v-table
+                                    :data="users.data" class="table"
+                                    :currentPage.sync="filter.currentPage"
+                                    :pageSize="10"
+                                    @totalPagesChanged="filter.totalPages = $event"
+                                    :filters="filters"
+                                >
+                                    <thead slot="head">
+                                        <v-th sortKey="name">Name</v-th>
+                                        <v-th sortKey="position">Position</v-th>
+                                        <v-th sortKey="office">Office</v-th>
+                                        <v-th sortKey="age">Age</v-th>
+                                        <v-th sortKey="startdate">Start date</v-th>
+                                        <v-th sortKey="salary">Salary</v-th>
+                                        <v-th sortKey="salary">Action</v-th>
+                                    </thead>
+                                    <tbody slot="body" slot-scope="{displayData}">
+                                        <tr v-for="row in displayData" :key="row.id">
+                                            <td>{{ row.name }}</td>
+                                            <td>{{ row.position }}</td>
+                                            <td>{{ row.office }}</td>
+                                            <td>{{ row.age }}</td>
+                                            <td>{{ row.startdate }}</td>
+                                            <td>{{ row.salary }}</td>
+                                            <td>
+                                                <b-button-group>
+                                                    <b-dropdown left text="Operations" variant="light">
+                                                        <b-dropdown-item variant="primary">Discount</b-dropdown-item>
+                                                        <b-dropdown-item variant="secondary">Edit</b-dropdown-item>
+                                                        <b-dropdown-item variant="danger"> Remove</b-dropdown-item>
+                                                    </b-dropdown>
+                                                </b-button-group>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </v-table>
+                            </div>
+                            <smart-pagination
+                            :currentPage.sync="filter.currentPage"
+                            :totalPages="filter.totalPages"
+                            />
+                        </div>
                     </b-tab>
                 </b-tabs>
             </b-card-body>
