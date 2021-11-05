@@ -146,6 +146,19 @@ $warning-color;
   }
 }
 
+.add-item-modal {
+  .card-body {
+    padding: 0px;
+    padding-top: 10px;
+  }
+
+  .card-footer {
+    padding: 0;
+    padding-top: 10px;
+    text-align: center;
+  }
+}
+
 //cashier hold orders
 .custom_hold_order {
   h6 {
@@ -164,5 +177,11 @@ $warning-color;
         padding: 15px;
       }
     }
+  }
+}
+
+.modal-part-section {
+  input.add_item_input {
+    margin-top: 5px;
   }
 }

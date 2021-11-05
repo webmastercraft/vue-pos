@@ -11,7 +11,7 @@
                             Categories
                         </template>
                         <div class="row">
-                            <a @click="quickView" class="new_order_link">New Category</a>
+                            <a @click="addCategoryModalShow" class="new_order_link">New Category</a>
                             <div class="col-sm-12 empty-cart-cls text-center"  v-if="!cart.length">
                                 <img :src='getImgUrl("ecommerce/icon-empty-cart.png")' class="img-fluid mb-4">
                                 <h3><strong>Your Cart is Empty</strong></h3>
@@ -203,6 +203,156 @@
         <button class="close" type="button" v-on:click="quickViewClose(modalShow)">
             <span>×</span>
         </button>
+        <div class="card add-item-modal">
+            <div class="card-header">
+                <h5>New Item</h5>
+            </div>
+            <form class="form theme-form">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-3">
+                                    <b-form-input type="text" ></b-form-input>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Description</label>
+                                <div class="col-sm-3">
+                                    <b-form-input type="text" placeholder="Type your title in Placeholder"></b-form-input>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Bar Code</label>
+                                <div class="col-sm-3">
+                                    <b-form-input type="text" placeholder="bar code"></b-form-input>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Cost Price</label>
+                                <div class="col-sm-3">
+                                    <b-form-input type="number" placeholder="Number"></b-form-input>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Taxes</label>
+                                <div class="col-sm-3">
+                                    <b-form-input type="number" placeholder="Number"></b-form-input>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Selling Price</label>
+                                <div class="col-sm-3">
+                                    <b-form-input type="number" placeholder="Number"></b-form-input>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-9">
+                                    <b-form-checkbox name="checkbox7" >Include Taxes</b-form-checkbox>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Type</label>
+                                <div class="col-sm-3">
+                                    <b-form-select v-model="tempTypeSelected" :options="tempType"></b-form-select>
+                                </div>
+                                <label class="col-sm-2 col-form-label">Upload Image</label>
+                                <div class="col-sm-5">
+                                    <b-form-file class="form-control" plain></b-form-file>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="modal-part-section col-sm-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Date</label>
+                                        <div class="col-sm-9">
+                                            <b-form-input type="date" value="2018-01-01" ></b-form-input>
+                                        </div>
+                                        <label class="col-sm-6 col-form-label">Price/Unit</label>
+                                        <div class="col-sm-6">
+                                            <b-form-input type="number" placeholder="Number" class="add_item_input"></b-form-input>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-6 col-form-label">Qty</label>
+                                        <div class="col-sm-6">
+                                            <b-form-input type="number" placeholder="Number"></b-form-input>
+                                        </div>
+                                        <label class="col-sm-6 col-form-label">Unit</label>
+                                        <div class="col-sm-6">
+                                            <b-form-input type="number" placeholder="Number" class="add_item_input"></b-form-input>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-part-section col-sm-6">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label">Date</label>
+                                        <div class="col-sm-9">
+                                            <b-form-input type="date" value="2018-01-01" ></b-form-input>
+                                        </div>
+                                        <label class="col-sm-6 col-form-label">Price/Unit</label>
+                                        <div class="col-sm-6">
+                                            <b-form-input type="number" placeholder="Number" class="add_item_input"></b-form-input>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-6 col-form-label">Qty</label>
+                                        <div class="col-sm-6">
+                                            <b-form-input type="number" placeholder="Number"></b-form-input>
+                                        </div>
+                                        <label class="col-sm-6 col-form-label">Unit</label>
+                                        <div class="col-sm-6">
+                                            <b-form-input type="number" placeholder="Number" class="add_item_input"></b-form-input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="col-sm-12">
+                        <b-button type="submit" variant="primary" class="mr-1" centered>Add</b-button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </b-modal>
+    <b-modal size="sm" centered v-model="cateModalShow" hide-footer hide-header>
+        <button class="close" type="button" v-on:click="addCategoryModalClose(cateModalShow)">
+            <span>×</span>
+        </button>
+        <!-- <b-form class="needs-validation" @submit="onCustomStyleSubmit"> -->
+        <b-form class="needs-validation">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="c_form_first_name">Category Name</label>
+                    <b-form-input type="text" 
+                        id="c_form_cate_name" 
+                        v-model="c_cate_form.category_name" 
+                        :state="c_cate_form_result.category_name" 
+                        placeholder="Diana Ferens"
+                    >
+                    </b-form-input>
+                    <b-form-valid-feedback :state="c_cate_form_result.category_name">Lock Good</b-form-valid-feedback>
+                </div>
+                <!-- <div class="col-md-4 mb-3">
+                    <label for="c_form_last_name">Phone</label>
+                    <b-form-input type="text" id="c_form_phone" v-model="c_form.last_name" :state="c_form_result.phone" placeholder="+44 7506955712"></b-form-input>
+                    <b-form-valid-feedback :state="c_form_result.phone">Lock Good</b-form-valid-feedback>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="c_form_username">Email</label>
+                    <b-input-group prepend="@">
+                        <b-form-input type="email" id="c_form_username" v-model="c_form.username" :state="c_form_result.email" placeholder="annaferens11@gmail.com"></b-form-input>
+                    </b-input-group>
+                    <b-form-invalid-feedback :state="c_form_result.username">Please choose a unique and valid email.</b-form-invalid-feedback>
+                </div> -->
+            </div>
+            <b-button type="submit" variant="primary">Add Customer</b-button>
+        </b-form>
     </b-modal>
   </div>
 </template> 
@@ -219,6 +369,7 @@ import users from '../../data/users';
         users,
         counter: 1,
         modalShow: false,
+        cateModalShow: false,
         filter:{
           currentPage: 1,
           totalPages: 0,
@@ -231,6 +382,19 @@ import users from '../../data/users';
           startdate: { value: '', keys: ['startdate'] },
           salary: { value: '', keys: ['salary'] },
         },
+        c_cate_form:{
+          category_name:'',
+        },
+        c_cate_form_result:{
+          category_name:null,
+        },
+        tempType:[
+          { value:null, text: 'Open this select menu' },
+          { value:1, text: 'One' },
+          { value:2, text: 'Two' },
+          { value:3, text: 'Three' },
+        ],
+        tempTypeSelected: null,
       };
     },
     computed: {
@@ -266,6 +430,14 @@ import users from '../../data/users';
       quickViewClose: function() {
         this.modalShow = false;
       },
+
+      //Category Modal Show
+      addCategoryModalShow: function() {
+        this.cateModalShow = true;
+      },
+      addCategoryModalClose: function() {
+        this.cateModalShow = false;
+      }
 
     }
   };
