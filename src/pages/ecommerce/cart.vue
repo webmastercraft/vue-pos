@@ -8,6 +8,27 @@
           <button class="btn btn-outline-primary m-10">+ New Order</button>
           <div class="row">
             <div class="col-sm-12">
+                <px-card :actions="false">
+                  <div slot="with-padding">
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label for="c_form_first_name">User Name:</label>
+                            <b-form-input type="text" id="c_form_first_name" v-model="c_form.first_name" :state="c_form_result.first_name" placeholder="Jone Doe"></b-form-input>
+                            <b-form-valid-feedback :state="c_form_result.first_name">Lock Good</b-form-valid-feedback>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="c_form_zipcode">Barcode:</label>
+                            <b-form-input type="text" id="c_form_zipcode" v-model="c_form.zip" :state="c_form_result.zip" placeholder="barcode"></b-form-input>
+                            <b-form-invalid-feedback :state="c_form_result.zip">Please provide a valid zip.</b-form-invalid-feedback>
+                        </div>
+                    </div>
+                    <b-button type="submit" variant="primary" @click="addCustomerModalShow">Add Customer</b-button>
+                  </div>
+                </px-card>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
               <div class="card">
                 <div class="card-body">
                   <div class="row">
@@ -213,6 +234,35 @@
           </b-card>
       </div>
     </b-modal>
+    <b-modal size="lg" centered v-model="customerModalShow" hide-footer hide-header>
+      <button class="close" type="button" v-on:click="addCustomerModalClose(customerModalShow)">
+        <span>×</span>
+      </button>
+      <!-- <b-form class="needs-validation" @submit="onCustomStyleSubmit"> -->
+      <b-form class="needs-validation">
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="c_form_first_name">Name</label>
+                <b-form-input type="text" id="c_form_name" v-model="c_form.first_name" :state="c_form_result.name" placeholder="Diana Ferens"></b-form-input>
+                <b-form-valid-feedback :state="c_form_result.first_name">Lock Good</b-form-valid-feedback>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="c_form_last_name">Phone</label>
+                <b-form-input type="text" id="c_form_phone" v-model="c_form.last_name" :state="c_form_result.phone" placeholder="+44 7506955712"></b-form-input>
+                <b-form-valid-feedback :state="c_form_result.phone">Lock Good</b-form-valid-feedback>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="c_form_username">Email</label>
+                <b-input-group prepend="@">
+                    <b-form-input type="email" id="c_form_username" v-model="c_form.username" :state="c_form_result.email" placeholder="annaferens11@gmail.com"></b-form-input>
+                </b-input-group>
+                <b-form-invalid-feedback :state="c_form_result.username">Please choose a unique and valid email.</b-form-invalid-feedback>
+            </div>
+        </div>
+        
+        <b-button type="submit" variant="primary">Add Customer</b-button>
+      </b-form>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -220,6 +270,7 @@
   import ProductList from '../product-list/product-list'
   import CKEditor from '@ckeditor/ckeditor5-vue';
   import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+  // import func from 'vue-editor-bridge';
   
   export default {
     name:'Product',
@@ -236,10 +287,19 @@
         counter: 1,
         modalShow: false,
         payModalShow: false,
+        customerModalShow: false,
         editor: ClassicEditor,
         editorData: '<p>Content of the editor.</p>',
         editorConfig: {
           config:{ height: '30px' }
+        },
+        c_form:{
+          first_name:'',
+          zip:''
+        },
+        c_form_result:{
+          first_name:null,
+          zip:null
         },
       };
     },
@@ -283,6 +343,14 @@
       quickPayViewClose: function() {
         this.payModalShow = false;
       },
+
+      //Customer Modal Show
+      addCustomerModalShow: function() {
+        this.customerModalShow = true;
+      },
+      addCustomerModalClose: function() {
+        this.customerModalShow = false;
+      }
     }
   };
 </script>

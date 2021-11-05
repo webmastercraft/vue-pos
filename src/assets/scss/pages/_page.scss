@@ -155,10 +155,13 @@ $warning-color;
     margin-bottom: 0;
   }
 
-  .card.hold_cards {
-    margin-top: 53px;
-    .card-body {
-      padding: 15px;
+  .hold_cards {
+    .card {
+      margin-top: 53px;
+
+      .card-body {
+        padding: 15px;
+      }
     }
   }
 }
