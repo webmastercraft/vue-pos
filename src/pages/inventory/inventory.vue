@@ -211,7 +211,6 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-3">
@@ -321,11 +320,11 @@
         </div>
     </b-modal>
     <b-modal size="sm" centered v-model="cateModalShow" hide-footer hide-header>
-        <button class="close" type="button" v-on:click="addCategoryModalClose(cateModalShow)">
+        <button class="close cateModalCloseBtn" type="button" v-on:click="addCategoryModalClose(cateModalShow)">
             <span>×</span>
         </button>
         <!-- <b-form class="needs-validation" @submit="onCustomStyleSubmit"> -->
-        <b-form class="needs-validation">
+        <b-form class="needs-validation add-category-modal">
             <div class="form-row">
                 <div class="col-md-12 mb-3">
                     <label for="c_form_first_name">Category Name</label>

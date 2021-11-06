@@ -146,6 +146,16 @@ $warning-color;
   }
 }
 
+.add-category-modal {
+  text-align: center;
+}
+
+.cateModalCloseBtn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
 .add-item-modal {
   .card-body {
     padding: 0px;
