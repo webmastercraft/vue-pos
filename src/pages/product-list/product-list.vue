@@ -38,10 +38,51 @@
         </div>
 
         <div v-if="filteredProducts.length == 0" class="slider_views">
-          <div class="shop_slider_view">
-            <div class="silder_title">
+          <div class="shop_slider_view_cashier">
+
+              <div class="card" v-for="(product,index) in filterProduct"
+                :key="index">
+                <div class="product-box">
+                  <div class="product-img">
+                    <!-- <div class="ribbon ribbon-danger" v-if="product.sale">Sale</div> -->
+                    <img class="img-fluid" :src="getImgUrl(product.images[0])" alt />
+                    <div class="product-hover">
+                      <ul>
+                        <router-link :to="'/ecommerce/cart'">
+                          <li @click="addToCart(product)">
+                            <button class="btn" type="button">
+                              <i class="icon-shopping-cart"></i>
+                            </button>
+                          </li>
+                        </router-link>
+                        <li>
+                          <button
+                            class="btn"
+                            @click="quickView(product)"
+                            type="button"
+                            data-toggle="modal"
+                            data-target="#exampleModalCenter"
+                          >
+                            <i class="icon-eye"></i>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  <div class="product-details">
+                    <!-- <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> -->
+                    <router-link :to="'/ecommerce/details/'+product.sku">
+                      <h5>{{product.name}}</h5>
+                    </router-link>
+                    <!-- <p>{{product.shortDescription}}</p>
+                    <div class="product-price">
+                      {{product.price | currency}}
+                      <del>{{product.salePrice | currency}}</del>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
             </div>
-            <Carousel 
+            <!-- <Carousel 
               :autoplay="true" 
               :per-page="5" 
               :loop="true" 
@@ -52,49 +93,9 @@
                 v-for="(product,index) in filterProduct"
                 :key="index"
               >
-                <div class="card">
-                  <div class="product-box">
-                    <div class="product-img">
-                      <!-- <div class="ribbon ribbon-danger" v-if="product.sale">Sale</div> -->
-                      <img class="img-fluid" :src="getImgUrl(product.images[0])" alt />
-                      <div class="product-hover">
-                        <ul>
-                          <router-link :to="'/ecommerce/cart'">
-                            <li @click="addToCart(product)">
-                              <button class="btn" type="button">
-                                <i class="icon-shopping-cart"></i>
-                              </button>
-                            </li>
-                          </router-link>
-                          <li>
-                            <button
-                              class="btn"
-                              @click="quickView(product)"
-                              type="button"
-                              data-toggle="modal"
-                              data-target="#exampleModalCenter"
-                            >
-                              <i class="icon-eye"></i>
-                            </button>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="product-details">
-                      <!-- <div class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> -->
-                      <router-link :to="'/ecommerce/details/'+product.sku">
-                        <h5>{{product.name}}</h5>
-                      </router-link>
-                      <!-- <p>{{product.shortDescription}}</p>
-                      <div class="product-price">
-                        {{product.price | currency}}
-                        <del>{{product.salePrice | currency}}</del>
-                      </div> -->
-                    </div>
-                  </div>
-                </div>
+
               </Slide>
-            </Carousel>
+            </Carousel> -->
           </div>
         </div>
       </div>
