@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Breadcrumbs main="" title="Employee"/>
+    <Breadcrumbs main="" title="Inventory"/>
     <!-- Container-fluid starts-->
     <div class="container-fluid pos_custom_table">
         <b-card header-tag="div" no-body>
@@ -14,9 +14,7 @@
                             <div class="row">
                                 <div class="card-body">
                                     <div class="datatable-vue m-0">
-                                        <div class="row filter-smart">
-                                           <button @click="quickView" class="btn btn-outline-primary add_option_btn">Add Group</button>
-                                        </div>
+                                        <a @click="quickView" class="new_order_link">New Group</a>
                                         <div class="table-responsive vue-smart">
                                             <v-table
                                                 :data="users.data" class="table"
@@ -55,17 +53,15 @@
                             </div>
                         </b-card-text>
                     </b-tab>
-                    <b-tab title="Expenses">
+                    <b-tab title="Members">
                         <template slot="title">
-                            Member
+                            Members
                         </template>
                         <b-card-text>
                             <div class="row">
                                 <div class="card-body">
                                     <div class="datatable-vue m-0">
-                                        <div class="row filter-smart">
-                                           <button @click="quickMemberView" class="btn btn-outline-primary add_option_btn">Add Member</button>
-                                        </div>
+                                        <a @click="quickView" class="new_order_link">New Member</a>
                                         <div class="table-responsive vue-smart">
                                             <v-table
                                                 :data="users.data" class="table"
@@ -77,7 +73,6 @@
                                                 <thead slot="head">
                                                     <v-th sortKey="name">Name</v-th>
                                                     <v-th sortKey="position">Group</v-th>
-                                                    <v-th sortKey="salary">Action</v-th>
                                                 </thead>
                                                 <tbody slot="body" slot-scope="{displayData}">
                                                     <tr v-for="row in displayData" :key="row.id">
@@ -112,16 +107,16 @@
     <!-- Container-fluid Ends-->
     <!-- QuickView Modal -->
     <b-modal size="lg" centered v-model="modalShow" hide-footer hide-header>
-        <div class="col-sm-12 modal_header_custom">
+        <button class="close" type="button" v-on:click="quickViewClose(modalShow)">
+            <span>×</span>
+        </button>
+        <div class="col-sm-12">
             <h5 class="mb-0">New Group</h5>
-            <button class="close close_btn" type="button" v-on:click="quickViewClose(modalShow)">
-                <span>×</span>
-            </button>
         </div>
         <b-form class="needs-validation">
-            <div class="form-row m-t-10">
+            <div class="form-row">
                 <div class="col-md-6">
-                    <label for="browser_first_name">Name</label>
+                    <label for="browser_first_name">New Group Name</label>
                     <b-form-input type="text" id="browser_first_name" required placeholder="Group name"></b-form-input>
                 </div>
                 <div class="col-md-6 m-t-3">
@@ -136,63 +131,7 @@
                 </div>
             </div>
             <div class="col-sm-12">
-                <h5 class="m-t-10">Permissions</h5>
-            </div>
-            <div class="form-row">
-                <div class="form-group checkbox col-sm-6">
-                    <div class="checkbox checkbox-dark">
-                        <b-form-checkbox name="checkbox7" >Option 1</b-form-checkbox>
-                    </div>
-                    <div class="checkbox checkbox-dark">
-                        <b-form-checkbox name="checkbox8">Option 2</b-form-checkbox>
-                    </div>
-                    <div class="checkbox checkbox-dark">
-                        <b-form-checkbox name="checkbox9">Option 3</b-form-checkbox>
-                    </div>
-                </div>
-                <div class="form-group checkbox col-sm-6">
-                    <div class="checkbox checkbox-dark">
-                        <b-form-checkbox name="checkbox7" >Option 1</b-form-checkbox>
-                    </div>
-                    <div class="checkbox checkbox-dark">
-                        <b-form-checkbox name="checkbox8">Option 2</b-form-checkbox>
-                    </div>
-                    <div class="checkbox checkbox-dark">
-                        <b-form-checkbox name="checkbox9">Option 3</b-form-checkbox>
-                    </div>
-                </div>
-            </div>
-
-            <b-button type="submit" variant="primary">Submit Form</b-button>
-        </b-form>
-    </b-modal>
-
-    <b-modal size="lg" centered v-model="memberModalShow" hide-footer hide-header>
-        <div class="col-sm-12 modal_header_custom">
-            <h5 class="mb-0">New Member</h5>
-            <button class="close close_btn" type="button" v-on:click="quickMemberViewClose(memberModalShow)">
-                <span>×</span>
-            </button>
-        </div>
-        <b-form class="needs-validation">
-            <div class="form-row m-t-10">
-                <div class="col-md-6">
-                    <label for="browser_first_name">Name</label>
-                    <b-form-input type="text" id="browser_first_name" required placeholder="User name"></b-form-input>
-                </div>
-                <div class="col-md-6 m-t-3">
-                    <label for="browser_last_name">Existing Groups</label>
-                    <b-form-select 
-                        class="form-control"
-                        v-model="supported_form.selected" 
-                        :options="supported_form_select_options" 
-                        :state="supported_select_state"
-                    >
-                    </b-form-select>
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <h5 class="m-t-10">Permissions</h5>
+                <h5 class="mb-0">Permissions</h5>
             </div>
             <div class="form-row">
                 <div class="form-group checkbox col-sm-6">
@@ -237,8 +176,6 @@ import users from '../../data/users';
         users,
         counter: 1,
         modalShow: false,
-        memberModalShow: false,
-
         filter:{
           currentPage: 1,
           totalPages: 0,
@@ -274,14 +211,7 @@ import users from '../../data/users';
         cart: state => state.products.cart,
         getAmount() {
           return this.totalAmount = this.$store.getters['products/getTotalAmount'];
-        },
-        supported_select_state(){
-            if(this.supported_form.selected == null) {
-                return false;
-            } else {
-                return true;
-            }
-        },
+        }
       })
     },
     methods: {
@@ -310,14 +240,6 @@ import users from '../../data/users';
         this.modalShow = false;
       },
 
-        //Quick View
-        quickMemberView: function() {
-            this.memberModalShow = true;
-        },
-
-        quickMemberViewClose: function() {
-            this.memberModalShow = false;
-        },
     }
   };
 </script>
