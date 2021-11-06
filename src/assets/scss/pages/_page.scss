@@ -137,6 +137,36 @@ $warning-color;
   }
 }
 
+//hold list scroll
+.row.hold_container {
+  overflow: auto;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap:nowrap;
+
+  .hold_item {
+    flex: 0 0  auto;
+    margin: 5px 10px;
+    width: 95px;
+  }
+}
+
+.cashier_table {
+  height: 30vh;
+}
+
+.shop_slider_view_cashier {
+  overflow: auto;
+  white-space: nowrap;
+  display: -webkit-box;
+  flex-wrap:nowrap;
+
+  .card {
+    width: 30%;
+    margin: 10px;
+  }
+}
+
 //modal header
 .modal_header_custom {
   white-space: nowrap;

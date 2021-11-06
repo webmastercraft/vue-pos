@@ -38,7 +38,7 @@
                       <h4>Add something to make me happy :)</h4>
                       <router-link :to="'/ecommerce/product'" class="btn btn-primary cart-btn-transform m-t-15">continue shopping</router-link>
                     </div>
-                    <div class="table-responsive vue-smart">
+                    <div class="table-responsive vue-smart cashier_table">
                         <v-table
                             :data="cart" class="table"
                             :currentPage.sync="filter.currentPage"
@@ -79,10 +79,10 @@
                             </tbody>
                         </v-table>
                     </div>
-                    <smart-pagination
+                    <!-- <smart-pagination
                       :currentPage.sync="filter.currentPage"
                       :totalPages="filter.totalPages"
-                    />
+                    /> -->
                   </div>
                 </div>
                 <!-- Container-fluid Ends-->
@@ -98,8 +98,8 @@
         <div class="col-md-6 custom_hold_order">
           <px-card title="Hold Orders" :actions="false" class="hold_cards">
             <div slot="with-padding">
-              <div class="row">
-                <div class="col-xl-3 col-md-6 box-col-6">
+              <div class="row hold_container">
+                <div class="hold_item">
                   <div class="prooduct-details-box">                                 
                     <div class="media">
                       <div class="media-body ml-3">
@@ -111,7 +111,55 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-md-6 box-col-6">
+                <div class="hold_item">
+                  <div class="prooduct-details-box">                                 
+                    <div class="media">
+                      <div class="media-body ml-3">
+                        <div class="product-name">
+                          <h6>Hold 2</h6>
+                        </div>
+                        <feather class="close"  type="x"></feather>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hold_item">
+                  <div class="prooduct-details-box">                                 
+                    <div class="media">
+                      <div class="media-body ml-3">
+                        <div class="product-name">
+                          <h6>Hold 1</h6>
+                        </div>
+                        <feather class="close" type="x"></feather>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hold_item">
+                  <div class="prooduct-details-box">                                 
+                    <div class="media">
+                      <div class="media-body ml-3">
+                        <div class="product-name">
+                          <h6>Hold 2</h6>
+                        </div>
+                        <feather class="close"  type="x"></feather>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hold_item">
+                  <div class="prooduct-details-box">                                 
+                    <div class="media">
+                      <div class="media-body ml-3">
+                        <div class="product-name">
+                          <h6>Hold 1</h6>
+                        </div>
+                        <feather class="close" type="x"></feather>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hold_item">
                   <div class="prooduct-details-box">                                 
                     <div class="media">
                       <div class="media-body ml-3">
