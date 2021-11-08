@@ -155,6 +155,10 @@ $warning-color;
   height: 30vh;
 }
 
+.item_check_detail {
+  text-align: center;
+}
+
 .shop_slider_view_cashier {
   overflow: auto;
   white-space: nowrap;
@@ -223,5 +227,12 @@ $warning-color;
 .modal-part-section {
   input.add_item_input {
     margin-top: 5px;
+  }
+
+  .detail_body {
+    border: 1px solid #000;
+    border-radius: 20px;
+    width: 100%;
+    padding: 10px;
   }
 }

@@ -314,8 +314,14 @@
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-sm-9">
+                                <div class="col-sm-4">
                                     <b-form-checkbox name="checkbox7" >Include Taxes</b-form-checkbox>
+                                </div>
+                                <div class="col-sm-4">
+                                    <b-form-checkbox name="checkbox7" >Display on Cashier Screen</b-form-checkbox>
+                                </div>
+                                <div class="col-sm-4">
+                                    <b-form-checkbox name="checkbox7" >Display on Dalili Public</b-form-checkbox>
                                 </div>
                             </div>
 
@@ -324,6 +330,16 @@
                                 <div class="col-sm-3">
                                     <b-form-select v-model="tempTypeSelected" :options="tempType"></b-form-select>
                                 </div>
+
+                                <label class="col-sm-2 col-form-label">Section</label>
+                                <div class="col-sm-3">
+                                    <label class="switch">
+                                        <input type="checkbox" checked=""><span class="switch-state"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Upload Image</label>
                                 <div class="col-sm-5">
                                     <b-form-file class="form-control" plain></b-form-file>
@@ -332,47 +348,46 @@
 
                             <div class="form-group row">
                                 <div class="modal-part-section col-sm-6">
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Date</label>
-                                        <div class="col-sm-9">
-                                            <b-form-input type="date" value="2018-01-01" ></b-form-input>
-                                        </div>
-                                        <label class="col-sm-6 col-form-label">Price/Unit</label>
-                                        <div class="col-sm-6">
-                                            <b-form-input type="number" placeholder="Number" class="add_item_input"></b-form-input>
-                                        </div>
+                                    <div class="col-sm-12 item_check_detail">
+                                        <b-form-radio name="radio3" value="option1">Product</b-form-radio>
+                                        <label class="col-sm-12">Product Details</label>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-6 col-form-label">Qty</label>
-                                        <div class="col-sm-6">
-                                            <b-form-input type="number" placeholder="Number"></b-form-input>
+                                    
+                                    <div class="detail_body">
+                                        <div class="form-group row">
+                                            <label class="col-sm-6 col-form-label">Unit Type</label>
+                                            <div class="col-sm-6">
+                                                <b-form-select v-model="tempTypeSelected" :options="tempType"></b-form-select>
+                                            </div>
                                         </div>
-                                        <label class="col-sm-6 col-form-label">Unit</label>
-                                        <div class="col-sm-6">
-                                            <b-form-input type="number" placeholder="Number" class="add_item_input"></b-form-input>
+                                        <div class="form-group row">
+                                            <label class="col-sm-6 col-form-label">Unit</label>
+                                            <div class="col-sm-6">
+                                                <b-form-input type="number" placeholder="Number" class="add_item_input"></b-form-input>
+                                            </div>
+                                            <label class="col-sm-6 col-form-label">Unit Count</label>
+                                            <div class="col-sm-6">
+                                                <b-form-input type="number" placeholder="Number"></b-form-input>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="modal-part-section col-sm-6">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label">Date</label>
-                                        <div class="col-sm-9">
-                                            <b-form-input type="date" value="2018-01-01" ></b-form-input>
+                                        <div class="col-sm-12 item_check_detail">
+                                            <b-form-radio name="radio3" value="option2">Service</b-form-radio>
+                                            <label class="col-sm-12">Service Details</label>
                                         </div>
-                                        <label class="col-sm-6 col-form-label">Price/Unit</label>
-                                        <div class="col-sm-6">
-                                            <b-form-input type="number" placeholder="Number" class="add_item_input"></b-form-input>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-6 col-form-label">Qty</label>
-                                        <div class="col-sm-6">
-                                            <b-form-input type="number" placeholder="Number"></b-form-input>
-                                        </div>
-                                        <label class="col-sm-6 col-form-label">Unit</label>
-                                        <div class="col-sm-6">
-                                            <b-form-input type="number" placeholder="Number" class="add_item_input"></b-form-input>
+                                        <div class="detail_body">
+                                            <label class="col-sm-6 col-form-label">Rate Type</label>
+                                            <div class="col-sm-6">
+                                                <b-form-select v-model="tempTypeSelected" :options="tempType"></b-form-select>
+                                            </div>
+                                            <label class="col-sm-6 col-form-label">Price/Rate</label>
+                                            <div class="col-sm-6">
+                                                <b-form-input type="number" placeholder="Number" class="add_item_input"></b-form-input>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
