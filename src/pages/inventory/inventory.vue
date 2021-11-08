@@ -402,12 +402,18 @@
                         <div class="col">
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Supplier</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <b-form-select v-model="tempTypeSelected" :options="tempType"></b-form-select>
                                 </div>
+                                <div class="col-sm-2">
+                                    <button class="btn btn-primary">New</button>
+                                </div>
                                 <label class="col-sm-2 col-form-label">Supplier</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <b-form-select v-model="tempTypeSelected" :options="tempType"></b-form-select>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button class="btn btn-primary">New</button>
                                 </div>
                             </div>
 
@@ -426,6 +432,9 @@
                                 <label class="col-sm-2 col-form-label">Product</label>
                                 <div class="col-sm-4">
                                     <input class="form-control" type="text" placeholder="Search..">
+                                </div>
+                                <div class="col-sm-2">
+                                    <button class="btn btn-primary">New</button>
                                 </div>
                             </div>
                         </div>
